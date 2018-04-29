@@ -10,6 +10,8 @@ public class Game extends Canvas implements Runnable
 	private Handler handler;
 	public static int WIDTH, HEIGHT;
 	
+	
+	
 	public synchronized void start()
 	{
 		if(running)
@@ -26,6 +28,9 @@ public class Game extends Canvas implements Runnable
 		WIDTH = getWidth();
 		HEIGHT = getHeight();
 		handler.createWorld();
+		
+		handler.addObject(new Player(100, 100, ObjectID.Player, handler));
+		this.addKeyListener(new KeyInput(handler));
 	}
 	
 	@Override

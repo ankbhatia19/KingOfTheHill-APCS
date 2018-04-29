@@ -14,7 +14,7 @@ public class Block extends GameObject
 	@Override
 	public void tick(LinkedList<GameObject> objects) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

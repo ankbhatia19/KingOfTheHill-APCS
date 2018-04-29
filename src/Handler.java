@@ -5,6 +5,7 @@ public class Handler
 {
 	public LinkedList<GameObject> objects = new LinkedList<GameObject>();
 	
+	
 	public void tick()
 	{	
 		for (GameObject thisObject : objects)
@@ -33,24 +34,23 @@ public class Handler
 	
 	public void createWorld()
 	{
-		createWorld(0, 32);
-		/*
-		for (int i = 0; i < Game.WIDTH; i += 32)
+		for (int i = 32; i < Game.WIDTH - 32; i += 32)
 		{
 			addObject(new Block(i, Game.HEIGHT - 50, ObjectID.Block));
 		}
-		*/
+		
+		for (int i = 0; i < Game.HEIGHT - 32; i += 32)
+		{
+			addObject(new Block(Game.WIDTH - 42, i, ObjectID.Block));
+			addObject(new Block(32, i, ObjectID.Block));
+		}
+		
+		for (int i = 256; i < Game.WIDTH - 256; i += 32)
+		{
+			addObject(new Block(i, Game.HEIGHT - 150, ObjectID.Block));
+		}
 	}
 	
-	private void createWorld(int start, int height)
-	{
-		if (start >= Game.WIDTH)
-			return;
-		
-		for (int i = start; i< Game.WIDTH - start; i += 32)
-			addObject(new Block(i, Game.HEIGHT - height, ObjectID.Block));
-		
-		createWorld(start + 32, height + 32);
-	}
+	
 }
 
